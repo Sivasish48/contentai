@@ -61,7 +61,7 @@ function SideNav() {
             <h2>{menu.name}</h2>
           </div>
         ))}
-      </div>
+      </div> 
     </div>
   );
 }
