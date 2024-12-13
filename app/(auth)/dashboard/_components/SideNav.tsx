@@ -3,7 +3,7 @@ import React, { useEffect } from "react";
 import Image from "next/image";
 import { Home, History, Cog, IndianRupee } from "lucide-react";
 import { usePathname } from "next/navigation";
-
+import multitoolLogo from '@/public/multitoolai.png';
 function SideNav() {
   const menuList = [
     {
@@ -35,33 +35,33 @@ function SideNav() {
   }, [path]);
 
   return (
-    <div className="h-screen p-5 shadow-sm border">
-      <div className="flex justify-center">
+    <div className="h-screen p-5 shadow-md bg-black text-white">
+      <div className="flex justify-center mt-2">
         <Image
-          src="/logo.svg"
+          src={multitoolLogo}
           alt="logo"
-          width={60}
-          height={60}
+          width={100}
+          height={130}
           className="hidden md:block"
         />
       </div>
-      <hr className="my-6 border" />
-      <div className="mt-3">
+      
+      <div className="mt-12">
         {menuList.map((menu, index) => (
           <div
             key={index}
             className={`flex gap-2 mb-2 p-3 cursor-pointer rounded-lg font-semibold items-center transition-colors 
               ${
                 path === menu.path
-                  ? "bg-primary"
-                  : "bg-transparent text-black hover:bg-primary"
+                  ? "bg-purple-700 text-white"
+                  : "bg-transparent text-gray-300 hover:bg-purple-600 hover:text-white"
               }`}
           >
             <menu.icon className="w-6 h-6" />
             <h2>{menu.name}</h2>
           </div>
         ))}
-      </div> 
+      </div>
     </div>
   );
 }

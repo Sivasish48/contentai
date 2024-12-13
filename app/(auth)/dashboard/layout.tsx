@@ -1,6 +1,6 @@
 import React from 'react'
 import SideNav from './_components/SideNav';
-import Header from './_components/Header';
+// import Header from './_components/Header';
 
 function layout({
     children,
@@ -17,7 +17,7 @@ function layout({
     
  
     <div className='md:ml-64'>
-    <Header/>
+    {/* <Header/> */}
     {children}
     </div>
     </div>
