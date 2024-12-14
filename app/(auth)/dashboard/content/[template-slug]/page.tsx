@@ -49,7 +49,7 @@ function CreateNewContent(props: Props) {
         </div>
 
         {/* Output Section */}
-        <div className="bg-purple-600 p-5 rounded-lg shadow-lg">
+        <div className="bg-gray-900 p-5 rounded-lg shadow-lg">
           <OutputSection />
         </div>
       </div>
