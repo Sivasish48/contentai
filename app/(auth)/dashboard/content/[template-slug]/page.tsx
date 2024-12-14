@@ -7,6 +7,7 @@ import { TEMPLATE } from "../../_components/TemplateListSection";
 import Templates from "@/app/(data)/Templates";
 import { ArrowLeft } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { chatSession } from "@/utils/AiModel";
 
 interface Props {
   params: {
@@ -15,14 +16,26 @@ interface Props {
 }
 
 function CreateNewContent(props: Props) {
+
+  const [loading, setLoading] = React.useState(false);
+  const [aiOutput, setAiOutput] = React.useState<string>("");
   const params = props.params;
 
   const selectedTemplate: TEMPLATE | undefined = Templates?.find(
     (item) => item.slug === params["template-slug"]
   );
 
-  const GenerateAiContent = (formData: any) => {
-    console.log("Generated AI Content:", formData);
+  const GenerateAiContent = async(formData: any) => {
+    // console.log("Generated AI Content:", formData);
+    setLoading(true);
+    const SelectedPrompt = selectedTemplate?.aiPrompt;
+
+    const FinalAiPrompt = JSON.stringify(formData) + " , " + SelectedPrompt;
+
+    const result = await  chatSession.sendMessage(FinalAiPrompt);
+    setAiOutput(result.response.text());
+    setLoading(false);
+    console.log("AI Response:", result.response.text());
   };
 
   return (
@@ -45,12 +58,13 @@ function CreateNewContent(props: Props) {
           <FormSection
             selectedTemplate={selectedTemplate}
             userFormInput={(formData: any) => GenerateAiContent(formData)}
+            loading={loading}
           />
         </div>
 
         {/* Output Section */}
         <div className="bg-gray-900 p-5 rounded-lg shadow-lg">
-          <OutputSection />
+          <OutputSection aiOutput={aiOutput} />
         </div>
       </div>
     </div>

@@ -4,13 +4,15 @@ import { TEMPLATE } from '../../_components/TemplateListSection';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { Button } from '@/components/ui/button';
+import { Loader2 } from 'lucide-react';
 
 interface Props {
   selectedTemplate?: TEMPLATE;
   userFormInput: any;
+  loading: boolean;
 }
 
-function FormSection({ selectedTemplate, userFormInput }: Props) {
+function FormSection({ selectedTemplate, userFormInput, loading }: Props) {
   const [formData, setFormData] = useState<any>({});
 
   const handleInputChange = (e: any) => {
@@ -66,7 +68,9 @@ function FormSection({ selectedTemplate, userFormInput }: Props) {
         <Button
           className="w-full bg-purple-600 hover:bg-purple-700 text-white mt-4"
           type="submit"
+          disabled={loading}
         >
+          {loading && <Loader2 className='animate-spin' />}
           Generate Content
         </Button>
       </form>

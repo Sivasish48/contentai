@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@clerk/nextjs": "^6.3.3",
+    "@google/generative-ai": "^0.21.0",
     "@radix-ui/react-slot": "^1.1.0",
     "@tabler/icons-react": "^3.22.0",
     "@toast-ui/react-editor": "^3.2.3",
