@@ -1,3 +1,5 @@
+"use client";
+
 import React, {  useEffect } from "react";
 import "@toast-ui/editor/dist/toastui-editor.css";
 
@@ -6,14 +8,16 @@ import { Button } from "@/components/ui/button";
 
 interface Props {
   aiOutput: string;
+  setLoading:boolean
 }
-function OutputSection({aiOutput}: Props) {
+function OutputSection({aiOutput , setLoading}:Props) {
 
   const editorRef:any = React.useRef();
 
   useEffect(() => {
     const editorInstance = editorRef.current.getInstance();
     editorInstance.setMarkdown(aiOutput);
+    
   },[aiOutput]);
   return (
     <div className="shadow-lg border rounded-lg p-5">

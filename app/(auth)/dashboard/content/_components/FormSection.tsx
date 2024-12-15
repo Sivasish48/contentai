@@ -9,7 +9,7 @@ import { Loader2 } from 'lucide-react';
 interface Props {
   selectedTemplate?: TEMPLATE;
   userFormInput: any;
-  loading: boolean;
+  loading: boolean; // Prop passed from the parent
 }
 
 function FormSection({ selectedTemplate, userFormInput, loading }: Props) {
@@ -70,7 +70,7 @@ function FormSection({ selectedTemplate, userFormInput, loading }: Props) {
           type="submit"
           disabled={loading}
         >
-          {loading && <Loader2 className='animate-spin' />}
+          {loading && <Loader2 className="animate-spin" />}
           Generate Content
         </Button>
       </form>
