@@ -180,7 +180,7 @@ export default  [
         category: 'blog',
        
         slug: 'instagram-post-generator',
-        aiPrompt: 'Generate 3 Instagram post depends on a given keywords and give output in  in rich text editor format',
+        aiPrompt: 'Generate 3 Instagram post depends on a given keywords and give output in rich text editor format',
         form: [
             {
                 label: 'Enter Keywords for your post',
@@ -198,7 +198,7 @@ export default  [
         category: 'blog',
        
         slug: 'instagram-hash-tag-generator',
-        aiPrompt: 'Generate 15 Instagram hash tag depends on a given keywords and give output in  in rich text editor format',
+        aiPrompt: 'Generate 15 Instagram hash tag depends on a given keywords and give output in rich text editor format',
         form: [
             {
                 label: 'Enter Keywords for your instagram hastag',
@@ -216,7 +216,7 @@ export default  [
         category: 'instagram',
        
         slug: 'instagram-post-idea-generator',
-        aiPrompt: 'Generate 5-10 Instagram idea depends on niche with latest trend and give output in  in rich text editor format',
+        aiPrompt: 'Generate 5-10 Instagram idea depends on niche with latest trend and give output in rich text editor format',
         form: [
             {
                 label: 'Enter Keywords / Niche for your instagram idea',
@@ -234,30 +234,12 @@ export default  [
         category: 'english',
        
         slug: 'english-grammer-checker',
-        aiPrompt: 'Rewrite the inputText by correcting the grammer and give output in  in rich text editor format',
+        aiPrompt: 'Rewrite the inputText by correcting the grammer and give output in rich text editor format',
         form: [
             {
                 label: 'Enter text to correct the grammer',
                 field: 'input',
                 name: 'inputText',
-                required:true
-            },
-           
-        ]
-    },
-    {
-        name: 'Write Code',
-        desc: 'AI Model to generate programming code in any language',
-        icon:'https://cdn-icons-png.flaticon.com/128/6062/6062646.png',
-        category: 'Coding',
-       
-        slug: 'write-code',
-        aiPrompt: 'Depends on user codeDescription write a code and give output in  in rich text editor format in code block ',
-        form: [
-            {
-                label: 'Enter description of code you want along with Programming Lang',
-                field: 'textarea',
-                name: 'codeDesscripton',
                 required:true
             },
            
@@ -330,7 +312,7 @@ export default  [
         category: 'Marketting',
        
         slug: 'product-description',
-        aiPrompt: 'Depends on user productName and description generate small description for product for e-commer business give output  in rich text editor format  ',
+        aiPrompt: 'Depends on user productName and description generate small description for product for e-commerce business give output  in rich text editor format  ',
         form: [
             {
                 label: 'Product Name',

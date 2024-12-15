@@ -1,10 +1,15 @@
 "use client";
+
 import React, { useEffect } from "react";
 import Image from "next/image";
+import { useRouter, usePathname } from "next/navigation";
 import { Home, History, Cog, IndianRupee } from "lucide-react";
-import { usePathname } from "next/navigation";
-import multitoolLogo from '@/public/multitoolai.png';
+import multitoolLogo from "@/public/multitoolai.png";
+
 function SideNav() {
+  const router = useRouter(); // Initialize the router
+  const path = usePathname();
+
   const menuList = [
     {
       name: "Home",
@@ -28,8 +33,6 @@ function SideNav() {
     },
   ];
 
-  const path = usePathname();
-
   useEffect(() => {
     console.log(path);
   }, [path]);
@@ -50,6 +53,7 @@ function SideNav() {
         {menuList.map((menu, index) => (
           <div
             key={index}
+            onClick={() => router.push(menu.path)} // Navigate on click
             className={`flex gap-2 mb-2 p-3 cursor-pointer rounded-lg font-semibold items-center transition-colors 
               ${
                 path === menu.path
