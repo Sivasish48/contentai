@@ -1,9 +1,15 @@
 import { Search } from "lucide-react";
+import { UserButton } from "@clerk/nextjs";
 import React from "react";
 
 function SearchSection({ onSearchInput }: any) {
   return (
-    <div className="p-10 bg-black rounded-lg shadow-md flex flex-col justify-center items-center text-white gap-6">
+    <div className="relative p-10 bg-black rounded-lg shadow-md flex flex-col justify-center items-center text-white gap-6">
+      {/* UserButton positioned at the top-right */}
+      <div className="absolute top-4 right-4">
+        <UserButton />
+      </div>
+
       {/* Title Section */}
       <div className="text-center">
         <h2 className="text-3xl font-bold text-white">Browse All the Tools</h2>

@@ -1,8 +1,10 @@
 import React from 'react'
-
+import { UserProfile } from '@clerk/nextjs'
 function page() {
   return (
-    <div>settings</div>
+    <div className='flex flex-col items-center justify-center h-screen'>
+      <UserProfile />
+    </div>
   )
 }
 
