@@ -17,11 +17,6 @@ function SideNav() {
       path: "/dashboard",
     },
     {
-      name: "History",
-      icon: History,
-      path: "/dashboard/history",
-    },
-    {
       name: "Settings",
       icon: Cog,
       path: "/dashboard/settings",
