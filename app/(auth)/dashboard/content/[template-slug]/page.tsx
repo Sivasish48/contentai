@@ -14,27 +14,23 @@ import { useRouter } from "next/navigation";
 
 // Define proper page props type for Next.js
 interface PageProps {
-  params: {
-    "template-slug": string;
-  };
+  params: Record<string, string>;
   searchParams: { [key: string]: string | string[] | undefined };
 }
+
 
 // Make it a client component explicitly
 
 
-export default function CreateNewContent({ params }: PageProps) {
+export default async function CreateNewContent({ params }: PageProps) {
   const router = useRouter();
   const [loading, setLoading] = React.useState(false);
   const [aiOutput, setAiOutput] = React.useState<string>("");
   const { user } = useUser();
 
   // Move this inside the component to ensure params is available
-  const selectedTemplate = React.useMemo(() => {
-    return Templates?.find(
-      (item) => item.slug === params["template-slug"]
-    );
-  }, [params]);
+  const resolvedParams = await params; // Await if needed
+  const selectedTemplate = Templates.find((item) => item.slug === resolvedParams["template-slug"]);
 
   const GenerateAiContent = async (formData: any) => {
     try {
